@@ -13,7 +13,7 @@ module.exports = {
     target: 'web',
     output: {
         path: distPath,
-        filename: '[name].js',
+        filename: 'js/[name].js',
         publicPath: isProduction ? '/web/dist/' : '/'
     },
     plugins: [
@@ -44,18 +44,12 @@ module.exports = {
                 include: __dirname
             },
             {
-                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-                loader: 'url-loader',
-                options: {
-                    limit: 10240
-                }
+                test: /\.(png|jpe?g|gif)(\?.*)?$/,
+                loader: 'url-loader?limit=10240&name=images/[name].[hash:8].[ext]'
             },
             {
-                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-                loader: 'url-loader',
-                options: {
-                    limit: 10240
-                }
+                test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
+                loader: 'url-loader?limit=10240&name=images/[name].[hash:8].[ext]'
             },
             {
                 test: /\.css?$/,

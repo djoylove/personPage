@@ -11,12 +11,12 @@ Object.keys(base.entry).forEach(function (name) {
 // base.entry.unshift('babel-polyfill', 'react-hot-loader/patch', 'webpack-hot-middleware/client');
 base.plugins.push(
     new webpack.HotModuleReplacementPlugin(),
-    new ExtractTextPlugin("[name].css", {
+    new ExtractTextPlugin("css/[name].css", {
         allChunks: true
     }),
     new webpack.optimize.CommonsChunkPlugin({
         name: 'common',
-        filename: 'common.js',
+        filename: 'js/common.js',
         minChunks: function (module, count) {
             return module.resource && module.resource.indexOf(path.resolve(__dirname, 'src')) === -1;
         }

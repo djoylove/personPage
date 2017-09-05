@@ -3,6 +3,7 @@ import {Route, IndexRedirect} from 'react-router';
 
 import App from '../views/App';
 import Dashboard from '../views/Dashboard';
+import Error from "../components/Error"
 
 export default (store) => {
 
@@ -22,11 +23,9 @@ export default (store) => {
     };
 
     return (
-        <Route path="/">
+        <Route path="/" component={App}>
             <IndexRedirect to="dashboard"/>
-            <Route component={App}>
-                <Route path="dashboard" component={Dashboard}></Route>
-            </Route>
+            <Route path="dashboard" component={Dashboard}></Route>
             <Route path="*" component={Error}/>
         </Route>
     )

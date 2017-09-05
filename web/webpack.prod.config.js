@@ -11,8 +11,8 @@ Object.keys(base.entry).forEach(function (name) {
 });
 // base.entry.unshift('babel-polyfill');
 // use hash filename to support long-term caching
-base.output.filename = '[name].[chunkhash].js';
-base.output.chunkFilename = '[name].[chunkhash].js';
+base.output.filename = 'js/[name].[chunkhash].js';
+base.output.chunkFilename = 'js/[name].[chunkhash].js';
 // add webpack plugins
 
 // 减小bundle size是个很大的学问...
@@ -33,13 +33,13 @@ base.plugins.push(
         }
     }),
     new Md5HashPlugin(),
-    new ExtractTextPlugin("[name].[contenthash].css", {
+    new ExtractTextPlugin("css/[name].[contenthash].css", {
         allChunks: true
     }),
     // extract vendor chunks
     new webpack.optimize.CommonsChunkPlugin({
         name: 'common',
-        filename: 'common.[chunkhash].js',
+        filename: 'js/common.[chunkhash].js',
         minChunks: function (module, count) {
             return module.resource && module.resource.indexOf(path.resolve(__dirname, 'src')) === -1;
         }

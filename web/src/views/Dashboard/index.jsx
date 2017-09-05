@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import { Menu, Icon } from 'antd';
 
 class Dashboard extends React.Component {
     constructor(props) {
@@ -15,7 +16,7 @@ class Dashboard extends React.Component {
         console.log("Dashboard");
         return (
             <div className="dashboard">
-                Hello World!
+              
             </div>
         )
     }
